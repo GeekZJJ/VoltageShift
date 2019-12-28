@@ -211,11 +211,11 @@
 			};
 			buildConfigurationList = ABC74EF617983B9900B182E7 /* Build configuration list for PBXProject "VoltageShift" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = ABC74EF117983B9900B182E7;
 			productRefGroup = ABC74EFF17983B9900B182E7 /* Products */;
@@ -286,7 +286,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 7698T37TAB;
+				DEVELOPMENT_TEAM = 6SG8RJAY88;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoltageShiftAnVMSR/voltageshift-Prefix.pch";
 				GCC_VERSION = "";
@@ -301,7 +301,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 7698T37TAB;
+				DEVELOPMENT_TEAM = 6SG8RJAY88;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoltageShiftAnVMSR/voltageshift-Prefix.pch";
 				GCC_VERSION = "";
@@ -407,12 +407,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.21;
-				DEVELOPMENT_TEAM = 7698T37TAB;
+				DEVELOPMENT_TEAM = 6SG8RJAY88;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoltageShiftAnVMSR/VoltageShift-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "VoltageShiftAnVMSR/VoltageShift-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.21;
 				MODULE_NAME = com.sicreative.VoltageShiftAnVMSR;
 				MODULE_VERSION = 1.22;
@@ -431,12 +431,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.21;
-				DEVELOPMENT_TEAM = 7698T37TAB;
+				DEVELOPMENT_TEAM = 6SG8RJAY88;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoltageShiftAnVMSR/VoltageShift-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "VoltageShiftAnVMSR/VoltageShift-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.21;
 				MODULE_NAME = com.sicreative.VoltageShiftAnVMSR;
 				MODULE_VERSION = 1.22;
