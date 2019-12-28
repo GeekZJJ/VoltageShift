@@ -253,7 +253,7 @@ int writeOCMailBox (int domain,int offset){
     in.action = AnVMSRActionMethodWRMSR;
     in.param = value;
     
-    printf("WRMSR %x with value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)in.param);
+//    printf("WRMSR %x with value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)in.param);
     
    // return (0);
     
@@ -305,7 +305,7 @@ int readOCMailBox (int domain){
     in.action = AnVMSRActionMethodWRMSR;
     in.param = value;
     
-    printf("WRMSR %x with value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)in.param);
+//    printf("WRMSR %x with value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)in.param);
     
     
     
@@ -371,7 +371,7 @@ int readOCMailBox (int domain){
         break;
     }
     
-    printf("RDMSR %x returns value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)out.param);
+//    printf("RDMSR %x returns value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)out.param);
 
     int returnvalue = (int)(out.param >> 20) & 0xFFF;
     if (returnvalue > 2047){
@@ -2103,8 +2103,8 @@ int main(int argc, const char * argv[])
             printf("Can't connect to StructMethod to send commands\n");
         }
 
-        printf("RDMSR %x returns value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)out.param);
-                printBits(sizeof(out.param), &out.param);
+//        printf("RDMSR %x returns value 0x%llx\n", (unsigned int)in.msr, (unsigned long long)out.param);
+//                printBits(sizeof(out.param), &out.param);
         
     } else if (!strncmp(parameter, "write", 5)) {
         if (argc < 4)
