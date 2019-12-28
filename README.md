@@ -1,4 +1,7 @@
 # VoltageShift 
+Fork from [sicreative/VoltageShift](https://github.com/sicreative/VoltageShift) and remove some debug message for convenience .
+
+--------
 Undervoltage Tools for MacOS (Haswell and Broadwell)<br />
 All source code protected by      The GNU General Public License V 3.0   <br />
 MSR Kext Driver modified from 
@@ -10,42 +13,25 @@ by  Andy Vandijck Copyright (C) 2013 AnV Software
 You can download this software´s binary from our site -
 [VoltageShift](http://sitechprog.blogspot.com/2017/06/voltageshift.html)
 
-Building
---------
+Or from this github [Release](https://github.com/GeekZJJ/VoltageShift/releases)
+
+## Building
+
 [Xcode](https://developer.apple.com/xcode/) is required. 
 Build the kernel extension (kext):
 
-     xcodebuild  -target VoltageShift.kext
+    xcodebuild -target VoltageShift
      
-change the owner to root:wheel for the kext <br />
-      sudo chown -R root:wheel build/Release/VoltageShift.kext
+Then change the owner to root:wheel for the kext <br />
+
+    sudo chown -R root:wheel build/Release/VoltageShift.kext
     
 Build the command line tool:
 
-     xcodebuild  -target voltageshift
-     
-   
-
-Usage
---------
-
-New Versions 1.22:
-1. Change read of timer from system api instead of MSR for improve of compatibility. 
-
-New Versions 1.21:
-1. Updated to support auto set Turbo / Power when startup  
-2. Default close "offset" for read temp. sensor. (As some system may have issue) [Charlyo]
+    xcodebuild -target voltageshift
 
 
-
-
-New Versions 1.2:
-1. Updated for support up to 8 core CPU
-2. Updated setting of turbo boost
-3. Updated setting of power limited 
-4. Additional power limited and turbo boost status showed on -info 
-5. info showed as OC_Locked  mean Apple locked the BIOS and not aviliable change of voltage
-
+## Usage
 
 This program is a command tool that supports Haswell and above CPUs for undervoltage.
 As Apple locked the OC capability for newer devices,  so if the info show "OC_Locked", you can not undervoltage, however you can close Turbo and set Power Limit to reduce heat.
@@ -91,7 +77,7 @@ After you test throughfuly the settings and are comfortable with System stabilit
 
 The <Update Mins> is the update interval of the tool to check and change, the Default value is 160min, Hibernate (suspend to Disk) will reset the voltage setting, as sleep (suspend to memory) will not change the sleep value, it will scheduled check the setting in peroid, and amend if need.
 
-     0 is for applying the setting at bootup only.
+    0 is for applying the setting at bootup only.
 
     
 for example:
@@ -99,6 +85,10 @@ for example:
     sudo ./voltageshift buildlaunchd  -50 -50 0 0 0 0 0 50 80 160
 
 set system auto apply CPU -50mv and GPU -50mv, close Turbo, and set PL1 to 50, PL2 to 80, run every boot and every 160min .
+
+    sudo ./voltageshift buildlaunchd  -128 -92 -128 -92 0 0 1 25 43 30
+
+My personal config (i5 8265u) : set system auto apply CPU -128mv, GPU -92mv, CPUCache -128mv, SA -92mv, enable Turbo, and set PL1 to 25, PL2 to 43, run every boot and every 30min .
 
     sudo ./voltageshift buildlaunchd  0 0 0 0 0 0 0 -1
 
@@ -109,18 +99,15 @@ switch off turbo only, run every boot and every 160min .
 set system auto apply CPU -20mv and cache -20mv, run only boot .
 
 
-
-
 You can remove the launchd with the following command:
 
-     ./voltageshift removelaunchd
+    ./voltageshift removelaunchd
      
      
 We  suggest to run first removelaunchd and them buildlaunchd if you want to change the launchd settings. 
 
 
-Additional
---------
+## Additional
 
    Use '--damage offset ...' if you want settings lower than 250mv or Overvoltage (>0v).
    
@@ -128,16 +115,13 @@ Additional
    by adding new ProgramArguments '--damage' between 
    '/Library/Application Support/VoltageShift/voltageshift' and 'offsetdaemons'
    
-   
-   
-   
    To read the MSR 
    
-      ./voltageshift read <HEX_MSR>
+    ./voltageshift read <HEX_MSR>
       
    To set the MSR
    
-     ./voltageshift write <HEX_MSR> <HEX_VALUE>
+    ./voltageshift write <HEX_MSR> <HEX_VALUE>
      
 To set the Power Limted of PL1 (Long Term) and PL2 (Short Term)  
     
@@ -147,14 +131,18 @@ To set Turbo Enabled (0-no turbo 1-turbo):
 
     ./voltageshift turbo <0/1>
 
- 
-   
+## Update log
 
+New Versions 1.22:
+1. Change read of timer from system api instead of MSR for improve of compatibility.
 
-    
+New Versions 1.21:
+1. Updated to support auto set Turbo / Power when startup
+2. Default close "offset" for read temp. sensor. (As some system may have issue) [Charlyo]
 
-
-
-
-
-
+New Versions 1.2:
+1. Updated for support up to 8 core CPU
+2. Updated setting of turbo boost
+3. Updated setting of power limited
+4. Additional power limited and turbo boost status showed on -info
+5. info showed as OC_Locked  mean Apple locked the BIOS and not aviliable change of voltage
